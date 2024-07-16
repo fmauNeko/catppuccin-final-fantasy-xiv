@@ -23,7 +23,7 @@ whiskers:
     "Caster Color": { "Rgb": [{{ self::floatarr(color=mauve) }}] },
     "Shield Color": { "Rgb": [{{ self::floatarr(color=sapphire) }}] },
     "Background Color": {
-      "Rgba": [{{ self::floatarr(color=base) }}, 1.0]
+      "Rgba": [{{ self::floatarr(color=base) }}, {% if variant == "frosted" %}{{ 230 / 255 | round(precision=8) }}{% elif variant == "material_ui" %}1.0{% endif %}]
     },
     "No Job Color": { "Rgb": [{{ self::floatarr(color=surface2) }}] },
     "Shape Style": { "SingleFiles": {% if variant == "frosted" %}0{% elif variant == "material_ui" %}1{% endif %} },
