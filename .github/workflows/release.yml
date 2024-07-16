@@ -1,0 +1,43 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate:
+    name: Generate theme files
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Setup bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install Catppuccin Whiskers
+        uses: jaxxstorm/action-install-gh-release@v1.10.0
+        with:
+          repo: catppuccin/whiskers
+          extension-matching: disable
+          rename-to: whiskers
+          chmod: 0755
+
+      - name: Generate theme files
+        run: |
+          whiskers templates/frost_ui.tera
+          bun scripts/generate_theme_files.ts
+
+      - name: Commit theme files
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update theme files"
+          file_pattern: "themes"

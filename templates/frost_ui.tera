@@ -2,23 +2,23 @@
 whiskers:
   version: 2.0.0
   matrix:
-    - variant: ["frosted", "material-ui"]
+    - variant: ["frosted", "material_ui"]
     - flavor
     - accent
-  filename: "json/frost_ui/{{flavor.identifier}}/{{accent}}/catppuccin-{{flavor.identifier}}-{{accent}}-{{variant}}.json"
+  filename: "json/{{flavor.identifier}}/{{accent}}/catppuccin-{{flavor.identifier}}-{{accent}}-frost_ui-{{variant}}.json"
 ---
 {% macro floatarr(color) %}{{ color.rgb.r / 255 | round(precision=8) }}, {{ color.rgb.g / 255 | round(precision=8) }}, {{ color.rgb.b / 255 | round(precision=8) }}{% endmacro floatarr %}
 {
-  "name": "Catppuccin {{flavor.name}} {{flavor.colors[accent].name}} {% if variant == "frosted" %}Frosted{% elif variant == "material-ui" %}Material UI{% endif %}",
+  "name": "Catppuccin {{flavor.name}} {{flavor.colors[accent].name}} {% if variant == "frosted" %}Frosted{% elif variant == "material_ui" %}Material UI{% endif %}",
   "settings": {
-    "Gauge": { "SingleFiles": {% if variant == "frosted" %}0{% elif variant == "material-ui" %}1{% endif %} },
+    "Gauge": { "SingleFiles": {% if variant == "frosted" %}0{% elif variant == "material_ui" %}1{% endif %} },
     "Melee Color": { "Rgb": [{{ self::floatarr(color=red) }}] },
-    "Window Style": { "SingleFiles": {% if variant == "frosted" %}1{% elif variant == "material-ui" %}5{% endif %} },
+    "Window Style": { "SingleFiles": {% if variant == "frosted" %}1{% elif variant == "material_ui" %}5{% endif %} },
     "Castbar Color": { "Rgb": [{{ self::floatarr(color=peach) }}] },
     "Gatherer Color": { "Rgb": [{{ self::floatarr(color=peach) }}] },
     "Crafter Color": { "Rgb": [{{ self::floatarr(color=mauve) }}] },
     "Limit Break Charging Color": { "Rgb": [{{ self::floatarr(color=blue) }}] },
-    "Minimap": { "SingleFiles": {% if variant == "frosted" %}0{% elif variant == "material-ui" %}1{% endif %} },
+    "Minimap": { "SingleFiles": {% if variant == "frosted" %}0{% elif variant == "material_ui" %}1{% endif %} },
     "Accent": { "Rgb": [{{ self::floatarr(color=flavor.colors[accent]) }}] },
     "Caster Color": { "Rgb": [{{ self::floatarr(color=mauve) }}] },
     "Shield Color": { "Rgb": [{{ self::floatarr(color=sapphire) }}] },
@@ -26,7 +26,7 @@ whiskers:
       "Rgba": [{{ self::floatarr(color=base) }}, 1.0]
     },
     "No Job Color": { "Rgb": [{{ self::floatarr(color=surface2) }}] },
-    "Shape Style": { "SingleFiles": {% if variant == "frosted" %}0{% elif variant == "material-ui" %}1{% endif %} },
+    "Shape Style": { "SingleFiles": {% if variant == "frosted" %}0{% elif variant == "material_ui" %}1{% endif %} },
     "Castbar Interruptable Color": {
       "Rgb": [{{ self::floatarr(color=red) }}]
     },
