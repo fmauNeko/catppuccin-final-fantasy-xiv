@@ -11,7 +11,7 @@ for (const file of filesToProcess.filter((file) => file.isFile())) {
   const content = await readFile(join(file.parentPath, file.name), { encoding: "utf8" });
   const minifiedContent = JSON.stringify(JSON.parse(content));
 
-  const b64Content = Buffer.from(minifiedContent).toString("base64");
+  const b64Content = Buffer.from(minifiedContent).toString("base64").replace(/={1,2}$/, '');
 
   const destinationPath = join(import.meta.dir, "..", "themes", filenameMatch.groups.flavor, filenameMatch.groups.accent);
 
