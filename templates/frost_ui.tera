@@ -36,7 +36,7 @@ whiskers:
     "Ranged Color": { "Rgb": [{{ self::floatarr(color=peach) }}] },
     "Limit Break Full Color": { "Rgb": [{{ self::floatarr(color=sapphire) }}] },
     "Job Icons Content": { "SingleFiles": 0 },
-    "Tank Color": { "Rgb": [{{ self::floatarr(color=red) }}] },
+    "Tank Color": { "Rgb": [{{ self::floatarr(color=blue) }}] },
     "Job Icons Party List": { "SingleFiles": 0 },
     "Healer Color": { "Rgb": [{{ self::floatarr(color=green) }}] },
     "Secondary Color": { "Rgb": [{{ self::floatarr(color=mantle) }}] }
